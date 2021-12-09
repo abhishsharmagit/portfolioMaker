@@ -1,0 +1,11 @@
+{
+  "name": "@portfoliomaker/entities",
+  "version": "1.0.0",
+  "description": "entities package",
+  "main": "index.js",
+  "author": "abhishek",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json"
+  }
+}

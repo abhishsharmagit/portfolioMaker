@@ -1,0 +1,11 @@
+{
+  "name": "@portfoliomaker/dto",
+  "version": "1.0.0",
+  "description": "dto for backend ",
+  "main": "index.js",
+  "author": "abhishek",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json"
+  }
+}

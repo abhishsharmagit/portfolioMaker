@@ -1,0 +1,12 @@
+{
+  "name": "portfoliomaker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:abhishsharmagit/portfolioMaker.git",
+  "author": "abhishek <abhishek@thinksys.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
