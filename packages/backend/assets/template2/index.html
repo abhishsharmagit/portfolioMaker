@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img src="./img/shape.png" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <h3>Portfolio</h3>
+            </div>
+
+            <div class="links">
+              <ul>
+                <li><a href="#me">Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#inTouch">Get in Touch</a></li>
+                <li><a href="#" class="btn">Hire Me</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="showcase-area" id="me">
+          <div class="container">
+            <div class="left">
+              <div class="big-title">
+                <h1 id="name">Future is here</h1>
+                <h1 id="profile" style="font-size: x-large">
+                  Start Exploring now.
+                </h1>
+              </div>
+              <p class="text" id="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Delectus eius distinctio odit, magni magnam qui ex perferendis
+                vitae!
+              </p>
+              <div class="cta">
+                <a href="./resume/resume.pdf" class="btn">Download CV</a>
+              </div>
+            </div>
+
+            <div class="right">
+              <img
+                src="https://abhishsharmagit.github.io/portfolio-website/img/template2/person.png"
+                alt="Person Image"
+                class="person"
+                id="pimg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <section class="services section" id="services">
+        <div class="container" id="skills">
+          <div class="section-header">
+            <h3 class="title" data-title="What I Do">Services</h3>
+          </div>
+
+          <div class="cards">
+            <div class="card-wrap">
+              <img
+                src="https://abhishsharmagit.github.io/portfolio-website/img/shapes/points3.png"
+                class="points points1 points-sq"
+                alt=""
+              />
+              <div class="card" data-card="UI/UX">
+                <div class="card-content z-index">
+                  <img
+                    src="https://abhishsharmagit.github.io/portfolio-website/img/design-icon.png"
+                    class="icon"
+                    alt=""
+                  />
+                  <h3 class="title-sm" id="profile">Web Design</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                    est suscipit itaque?
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <div class="card" data-card="Code">
+                <div class="card-content z-index">
+                  <img
+                    src="https://abhishsharmagit.github.io/portfolio-website/img/code-icon.png"
+                    class="icon"
+                    alt=""
+                  />
+                  <h3 class="title-sm">Web Development</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores suscipit nobis dolore?
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <img
+                src="https://abhishsharmagit.github.io/portfolio-website/img/shapes/points3.png"
+                class="points points2 points-sq"
+                alt=""
+              />
+              <div class="card" data-card="App">
+                <div class="card-content z-index">
+                  <img
+                    src="https://abhishsharmagit.github.io/portfolio-website/img/app-icon.png"
+                    class="icon"
+                    alt=""
+                  />
+                  <h3 class="title-sm">App Development</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptatum hic veniam nihil.
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container" id="inTouch">
+          <div class="contact-box">
+            <div class="contact-info">
+              <h3 class="title">Get in touch</h3>
+              <p class="text" id="inTouch">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                rerum odio incidunt doslorum officia dolorem eaque aprim?
+              </p>
+              <div class="information-wrap">
+                <div class="information">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <p class="info-text" id="address">85 street, NY 11553</p>
+                </div>
+
+                <div class="information">
+                  <div class="contact-icon">
+                    <i class="fas fa-paper-plane"></i>
+                  </div>
+                  <p class="info-text" id="email">lorem@ipsum.com</p>
+                </div>
+
+                <div class="information">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <p class="info-text" id="phone">123-456-789</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form">
+              <h3 class="title">Contact me</h3>
+              <div class="row">
+                <input
+                  type="text"
+                  class="contact-input"
+                  placeholder="First Name"
+                />
+                <input
+                  type="text"
+                  class="contact-input"
+                  placeholder="Last Name"
+                />
+              </div>
+
+              <div class="row">
+                <input type="text" class="contact-input" placeholder="Phone" />
+                <input type="email" class="contact-input" placeholder="Email" />
+              </div>
+
+              <div class="row">
+                <textarea
+                  name="message"
+                  class="contact-input textarea"
+                  placeholder="Message"
+                ></textarea>
+              </div>
+              <a href="#" class="btn">Send</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hireme" id="hireme">
+        <div class="container">
+          <h3 class="title">Let's talk about a project</h3>
+          <p class="text" id="hireme">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+            culpa. Commodi suscipit animi officia dignissimos unde, ipsum fugiat
+            consequuntur, fugit ratione vel aperiam, similique distinctio
+            mollitia repellendus quasi rem vero!
+          </p>
+          <a href="#" class="btn">Hire me</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="./js/bundle.js"></script>
+    <script>
+      const title = document.getElementById('name');
+      const profile = document.getElementById('profile');
+      const description = document.getElementById('description');
+      const phone = document.getElementById('phone');
+      const email = document.getElementById('email');
+      const address = document.getElementById('address');
+      const about = document.getElementById('about');
+      const inTouch = document.getElementById('inTouch');
+      const portfolioImg = document.getElementById('pimg');
+
+      var request = new XMLHttpRequest();
+
+      request.open('GET', './js/credentials.json', true);
+
+      request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+          // Success!
+          var data = JSON.parse(request.responseText);
+          let ext = data.imageName.slice(-3);
+          title.innerHTML = data.firstName;
+          profile.innerHTML = data.profile;
+          description.innerHTML = data.description;
+          phone.innerHTML = data.phone;
+          email.innerHTML = data.email;
+          address.innerHTML = data.address;
+          about.innerHTML = data.about;
+          inTouch.innerHTML = data.inTouch;
+          data.imageName
+            ? (portfolioImg.src = `./images/portfolioImage.${ext}`)
+            : (portfolioImg.src =
+                'https://abhishsharmagit.github.io/portfolio-website/img/template2/person.png');
+        } else {
+          // We reached our target server, but it returned an error
+        }
+      };
+
+      request.onerror = function () {
+        // There was a connection error of some sort
+      };
+
+      request.send();
+    </script>
+  </body>
+</html>
