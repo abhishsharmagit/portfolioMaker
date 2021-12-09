@@ -1,12 +1,26 @@
 {
   "name": "portfoliomaker",
   "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
   "main": "index.js",
   "repository": "git@github.com:abhishsharmagit/portfolioMaker.git",
   "author": "abhishek <abhishek@thinksys.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "sync": "yarn install --production=false && lerna bootstrap && yarn build",
+    "build": "yarn env lerna run build --parallel",
+    "env": "dotenv -e ${ENV_PATH:-.env} --",
+    "start:dev": "yarn env lerna exec 'yarn start:dev' --scope=@portfoliomaker/{backend,client} --stream",
+    "start:docker": "yarn env docker-compose up --build",
+    "start:infra": "yarn env docker-compose up postgres pgadmin",
+    "migration:generate": "lerna exec 'yarn migration:generate' --scope=@portfoliomaker/backend --stream",
+    "migration:run": "lerna exec 'yarn migration:run' --scope=@portfoliomaker/backend --stream"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "dotenv-cli": "^4.0.0"
   }
 }

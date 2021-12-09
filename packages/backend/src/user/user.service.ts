@@ -1,22 +1,22 @@
-import { Injectable, Req } from '@nestjs/common';
-import axios, { AxiosRequestConfig } from 'axios';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import * as fs from 'fs';
-import { filePayload } from 'src/helper/config';
+import { Injectable } from "@nestjs/common";
+import axios, { AxiosRequestConfig } from "axios";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import * as fs from "fs";
+import { filePayload } from "src/helper/config";
 import {
   FileEntity,
   RepoEntity,
   PortfolioEntity,
   User,
   IUser,
-} from '../../../entities/src';
+} from "../../../entities/src";
 import {
   CreateFileDTO,
   CreateRepoDTO,
   DeployPortfolioDTO,
   IcreatePortfolioDTO,
-} from '../../../dto/src';
+} from "../../../dtos/src";
 
 @Injectable()
 export class UserService {
@@ -27,19 +27,21 @@ export class UserService {
     @InjectRepository(PortfolioEntity)
     private portfolioRepo: Repository<PortfolioEntity>,
     @InjectRepository(RepoEntity)
-    private repoRepository: Repository<RepoEntity>,
+    private repoRepository: Repository<RepoEntity>
   ) {}
 
-  async getUser(id: string): Promise<IUser> {
+  async getUser(id: string): Promise<IUser | undefined> {
     try {
-      const user: User = await this.userRepository.findOne({
+      const user = await this.userRepository.findOne({
         id,
       });
-      return {
-        id: user.id,
-        githubId: user.githubId,
-        username: user.username,
-      };
+      return (
+        user && {
+          id: user.id,
+          githubId: user.githubId,
+          username: user.username,
+        }
+      );
     } catch (e) {
       console.log(e.message);
     }
@@ -50,16 +52,16 @@ export class UserService {
       const user = await this.userRepository.findOne(id);
 
       const config: AxiosRequestConfig = {
-        method: 'POST',
+        method: "POST",
         data: dto,
         headers: {
           Authorization: `Bearer ${await this.getToken(id)}`,
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       };
       const repo: any = await axios(
-        'https://api.github.com/user/repos',
-        config,
+        "https://api.github.com/user/repos",
+        config
       );
 
       const payload = {
@@ -68,27 +70,30 @@ export class UserService {
       };
       const repoEntity = await this.repoRepository.create(payload);
       await this.repoRepository.save(repoEntity);
-      console.log('repocreatedherrererererere');
+      console.log("repocreatedherrererererere");
       return repo.data;
     } catch (e) {
-      console.log(e.message, 'repoerror');
+      console.log(e.message, "repoerror");
     }
   }
 
-  async checkRepoExist(username: string, repoName: string): Promise<boolean> {
+  async checkRepoExist(
+    username: string,
+    repoName: string
+  ): Promise<boolean | undefined> {
     try {
       const existingRepo = await this.repoRepository.findOne({
         repoName: repoName,
       });
-      console.log(repoName, 'repoName');
+      console.log(repoName, "repoName");
       const repo = await axios(
-        `https://api.github.com/users/${username}/repos`,
+        `https://api.github.com/users/${username}/repos`
       );
-      console.log(existingRepo, 'existingrepo');
+      console.log(existingRepo, "existingrepo");
       const exist = repo.data.filter((data) => {
         return data.name === repoName;
       });
-      console.log(exist, 'exist');
+      console.log(exist, "exist");
       if (existingRepo && exist.length > 0) {
         console.log(1);
         return true;
@@ -101,41 +106,41 @@ export class UserService {
         return false;
       }
     } catch (e) {
-      console.log(e, 'checkrepoeror');
+      console.log(e, "checkrepoeror");
     }
   }
 
   async createFile(id: string, dto: CreateFileDTO, repoName: string) {
     try {
-      const user = await this.userRepository.findOne(id);
+      const user: User | undefined = await this.userRepository.findOne(id);
       const fileExist = await this.fileRepository.findOne({
         fileName: dto.fileName,
         repoName: repoName,
       });
 
       const params = {
-        owner: user.username,
+        owner: user?.username,
         repo: repoName,
         path: dto.path,
       };
       const content = fs.readFileSync(
         `${process.cwd()}/dist/${dto.readPath}`,
-        'binary',
+        "binary"
       );
       console.log(1);
       const data = fileExist
         ? {
             message: dto.message,
-            content: Buffer.from(content, 'binary').toString('base64'),
+            content: Buffer.from(content, "binary").toString("base64"),
             sha: fileExist.sha,
           }
         : {
             message: dto.message,
-            content: Buffer.from(content, 'binary').toString('base64'),
+            content: Buffer.from(content, "binary").toString("base64"),
           };
 
       const config: AxiosRequestConfig = {
-        method: 'PUT',
+        method: "PUT",
         headers: {
           Authorization: `Bearer ${await this.getToken(id)}`,
         },
@@ -144,7 +149,7 @@ export class UserService {
 
       const createdfile: any = await axios(
         `https://api.github.com/repos/${params.owner}/${params.repo}/contents/${params.path}`,
-        config,
+        config
       );
       console.log(2);
       const payload = {
@@ -162,48 +167,46 @@ export class UserService {
 
       return createdfile.data;
     } catch (e) {
-      console.log(e, 'fileerror');
+      console.log(e, "fileerror");
     }
   }
 
   async getToken(id: string) {
     try {
       const user = await this.userRepository.findOne({ id });
-      return user.token;
+      return user?.token;
     } catch (e) {
-      console.log(e.message, 'tokenerror');
+      console.log(e.message, "tokenerror");
     }
   }
 
   async createPortfolio(dto: IcreatePortfolioDTO, id: string) {
     try {
-      const js = fs.writeFileSync(
+      fs.writeFileSync(
         `${process.cwd()}/dist/${dto.template}/js/credentials.json`,
-        JSON.stringify(dto),
+        JSON.stringify(dto)
       );
-      const user = await this.userRepository.findOne(id);
+      const user: User | undefined = await this.userRepository.findOne(id);
 
       const repoPayload: CreateRepoDTO = {
         name: dto.portfolio,
-        description: 'my portfolio',
-        homepage: 'https://github.com',
+        description: "my portfolio",
+        homepage: "https://github.com",
         private: false,
         has_issues: true,
         has_projects: true,
         has_wiki: true,
       };
-      console.log(repoPayload, 'repopayload');
+      console.log(repoPayload, "repopayload");
 
-      const checkRepoExist = await this.checkRepoExist(
-        user.username,
-        repoPayload.name,
-      );
+      const checkRepoExist =
+        user && (await this.checkRepoExist(user.username, repoPayload.name));
       if (!checkRepoExist) {
         await this.createRepo(repoPayload, id);
       }
 
       const files = filePayload(dto.template, dto.imageName, dto.resumeName);
-      console.log(files, 'files');
+      console.log(files, "files");
       for (const file of files) {
         await this.createFile(id, file, repoPayload.name);
       }
@@ -212,42 +215,42 @@ export class UserService {
       if (githubPage) {
         return githubPage;
       } else {
-        return await this.deployPortfolio(id, repoPayload.name, dto.template);
+        return await this.deployPortfolio(id, repoPayload.name);
       }
     } catch (e) {
       console.log(e);
     }
   }
 
-  async deployPortfolio(id: string, repoName: string, template: string) {
-    const user = await this.userRepository.findOne(id);
+  async deployPortfolio(id: string, repoName: string) {
+    const user: User | undefined = await this.userRepository.findOne(id);
 
-    const params: DeployPortfolioDTO = {
+    const params: DeployPortfolioDTO | undefined = user && {
       owner: user.username,
       repo: repoName,
     };
     const data = {
       source: {
-        branch: 'main',
-        path: '/',
+        branch: "main",
+        path: "/",
       },
     };
 
     const config: AxiosRequestConfig = {
-      method: 'POST',
+      method: "POST",
       headers: {
         Authorization: `Bearer ${await this.getToken(id)}`,
       },
       data: data,
     };
     const result: any = await axios(
-      `https://api.github.com/repos/${params.owner}/${params.repo}/pages`,
-      config,
+      `https://api.github.com/repos/${params?.owner}/${params?.repo}/pages`,
+      config
     );
     const payload = {
       url: result.data.html_url,
       user: user,
-      repoName: params.repo,
+      repoName: params?.repo,
     };
     const portfolioEntity = await this.portfolioRepo.create(payload);
     await this.portfolioRepo.save(portfolioEntity);
@@ -258,15 +261,15 @@ export class UserService {
     try {
       const user = await this.userRepository.findOne(id);
       const config: AxiosRequestConfig = {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${await this.getToken(id)}`,
         },
       };
 
       const page: any = await axios(
-        `https://api.github.com/repos/${user.username}/${repo}/pages`,
-        config,
+        `https://api.github.com/repos/${user?.username}/${repo}/pages`,
+        config
       );
       return page.data.html_url;
     } catch (e) {
