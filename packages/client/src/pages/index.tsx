@@ -36,12 +36,12 @@ const Home: NextPage = () => {
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
               crossOrigin="anonymous"
             />
-            <Script
+            <script
               src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
               integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
               crossOrigin="anonymous"
               referrerPolicy="no-referrer"
-            ></Script>
+            ></script>
           </Head>
           <>
             <nav className="navbar navbar-expand-lg">
