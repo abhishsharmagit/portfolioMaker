@@ -4,7 +4,7 @@ import Card from "../component/Card";
 import Template1 from "../component/Templates/Template1";
 import Template2 from "../component/Templates/Template2";
 
-const template = () => {
+const Template = () => {
   const [preview, setPreview] = useState<boolean>(false);
   const [template, setTemplate] = useState<string>("");
 
@@ -75,4 +75,4 @@ const template = () => {
   );
 };
 
-export default template;
+export default Template;

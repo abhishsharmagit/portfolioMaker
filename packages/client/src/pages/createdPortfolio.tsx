@@ -17,7 +17,7 @@ type TableBody = {
   portfolioLink: JSX.Element;
 };
 
-const createdPortfolio: NextPage = () => {
+const CreatedPortfolio: NextPage = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector<any>(
     (state) => Object.values(state.user.entities)[0]
@@ -49,6 +49,7 @@ const createdPortfolio: NextPage = () => {
           className="rounded-xl bg-blue-300 px-3 py-2"
           href={data.url}
           target={"_blank"}
+          rel="noreferrer"
         >
           Open Portfolio
         </a>
@@ -99,4 +100,4 @@ const createdPortfolio: NextPage = () => {
   );
 };
 
-export default createdPortfolio;
+export default CreatedPortfolio;
