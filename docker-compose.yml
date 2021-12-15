@@ -6,7 +6,6 @@ services:
     build:
       context: .
       dockerfile: packages/backend/Dockerfile
-      target: production
     env_file:
       - .env
     ports:
@@ -22,7 +21,6 @@ services:
     build:
       context: .
       dockerfile: packages/client/Dockerfile
-      target: production
       args:
         AUTH_URL: ${AUTH_URL}
         BACKEND_URL: ${BACKEND_URL}
