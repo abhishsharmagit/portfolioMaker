@@ -9,6 +9,6 @@ async function bootstrap() {
   });
   app.use(express.json());
 
-  await app.listen(process.env.PORT || (5001 as number));
+  await app.listen(5000);
 }
 bootstrap();
