@@ -4,6 +4,6 @@ setup:
       as: DATABASE
 build:
   docker:
-    backend: packages/backend/dockerfile
-    client: packages/client/dockerfile
+    backend: packages/backend/Dockerfile
+    client: packages/client/Dockerfile
 
