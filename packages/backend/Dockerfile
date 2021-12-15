@@ -7,9 +7,6 @@ RUN yarn global add lerna
 COPY . .
 
 RUN yarn install
-RUN lerna bootstrap
-RUN lerna exec 'yarn build' --scope=@portfoliomaker/backend --stream
-
 
 FROM node:14.15.0 as production
 
