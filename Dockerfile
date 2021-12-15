@@ -8,7 +8,6 @@ COPY . .
 
 RUN yarn install
 RUN lerna bootstrap
-RUN lerna exec 'yarn build' --scope=@portfoliomaker/ --stream
 
 
 FROM node:14.15.0-alpine as production
