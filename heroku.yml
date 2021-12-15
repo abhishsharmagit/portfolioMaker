@@ -1,0 +1,11 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+build:
+  docker:
+    release:
+      dockerfile: packages/client/Dockerfile
+      target: production
+    backend: packages/backend/Dockerfile
+    client: packages/client/Dockerfile
