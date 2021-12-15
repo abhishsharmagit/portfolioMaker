@@ -4,6 +4,9 @@ setup:
       as: DATABASE
 build:
   docker:
+    release:
+       dockerfile: Dockerfile
+       target: production
     backend: packages/backend/Dockerfile
     client: packages/client/Dockerfile
 
