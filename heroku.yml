@@ -6,4 +6,4 @@ build:
   docker:
     backend: packages/backend/dockerfile
     client: packages/client/dockerfile
-  config: .env
+
