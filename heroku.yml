@@ -6,5 +6,7 @@ build:
   docker:
     backend:
       dockerfile: packages/backend/Dockerfile
+    root:
+      dockerfile: Dockerfile
     client:
       dockerfile: packages/backend/Dockerfile
