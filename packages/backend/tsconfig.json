@@ -4,6 +4,7 @@
     "module": "commonjs",
     "outDir": "./dist",
     "incremental": true,
+    "experimentalDecorators": true,
     "baseUrl": "./",
     "paths": {
       "@package/*": ["../*/src/index"]
