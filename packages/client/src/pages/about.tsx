@@ -17,6 +17,7 @@ const about = () => {
           className="rounded-full bg-red-400 px-5 py-3 text-2xl cursor-pointer mr-10"
           href="https://github.com/abhishsharmagit"
           target={"_blank"}
+          rel="noreferrer"
         >
           My Github
         </a>
