@@ -6,7 +6,5 @@ build:
   docker:
     backend:
       dockerfile: packages/backend/Dockerfile
-      context: .
     client:
       dockerfile: packages/backend/Dockerfile
-      context: .
