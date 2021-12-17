@@ -4,8 +4,8 @@ services:
     container_name: portfoliobackend
     restart: always
     build:
-      context: .
-      dockerfile: packages/backend/Dockerfile
+      context:  packages/backend
+      dockerfile: Dockerfile
       target: production
     env_file:
       - .env
@@ -20,8 +20,8 @@ services:
     container_name: portfolioclient
     restart: always
     build:
-      context: .
-      dockerfile: packages/client/Dockerfile
+      context: packages/client
+      dockerfile: Dockerfile
       target: production
       args:
         AUTH_URL: ${AUTH_URL}
