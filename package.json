@@ -19,8 +19,9 @@
     "migration:generate": "lerna exec 'yarn migration:generate' --scope=@portfoliomaker/backend --stream",
     "migration:run": "lerna exec 'yarn migration:run' --scope=@portfoliomaker/backend --stream"
   },
-  "devDependencies": {
-    "lerna": "^4.0.0",
-    "dotenv-cli": "^4.0.0"
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "dotenv-cli": "^4.0.0",
+    "lerna": "^4.0.0"
   }
 }
