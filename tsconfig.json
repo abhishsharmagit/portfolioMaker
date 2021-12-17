@@ -10,7 +10,7 @@
     "noImplicitReturns": false,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "target": "es2017",
+    "target": "es2015",
     "sourceMap": true,
     "incremental": false,
     "esModuleInterop": true,

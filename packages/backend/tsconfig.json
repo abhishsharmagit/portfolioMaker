@@ -5,6 +5,8 @@
     "outDir": "./dist",
     "incremental": true,
     "experimentalDecorators": true,
+    "target": "es2015",
+    "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "paths": {
       "@package/*": ["../*/src/index"]
