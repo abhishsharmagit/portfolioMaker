@@ -10,13 +10,13 @@ import {
   PortfolioEntity,
   User,
   IUser,
-} from "../../../entities/src";
+} from "@package/entities";
 import {
   CreateFileDTO,
   CreateRepoDTO,
   DeployPortfolioDTO,
   IcreatePortfolioDTO,
-} from "../../../dtos/src";
+} from "@package/dtos";
 
 @Injectable()
 export class UserService {

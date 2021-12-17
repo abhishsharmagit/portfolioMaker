@@ -1,13 +1,13 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
 import {
   User,
   FileEntity,
   PortfolioEntity,
   RepoEntity,
-} from '../../../entities/src';
-import { UserController } from './user.controller';
-import { UserService } from './user.service';
+} from "@package/entities";
+import { UserController } from "./user.controller";
+import { UserService } from "./user.service";
 
 @Module({
   imports: [

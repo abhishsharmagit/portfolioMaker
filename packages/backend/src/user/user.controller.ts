@@ -10,8 +10,8 @@ import {
 } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { JWTAuthGuard } from "src/auth/guard/jwtGuard";
-import { IUser } from "../../../entities/src";
-import { IcreatePortfolioDTO } from "../../../dtos/src";
+import { IUser } from "@package/entities";
+import { IcreatePortfolioDTO } from "@package/dtos";
 import { FileInterceptor } from "@nestjs/platform-express";
 import * as path from "path";
 import { diskStorage } from "multer";

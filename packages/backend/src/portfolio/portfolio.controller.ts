@@ -1,9 +1,9 @@
 import { Body, Controller, Post, Req, UseGuards } from "@nestjs/common";
 import { JWTAuthGuard } from "src/auth/guard/jwtGuard";
-import { ICheckRepoDTO, GetPortfolioDTO } from "../../../dtos/src";
+import { ICheckRepoDTO, GetPortfolioDTO } from "@package/dtos";
 import { UserService } from "src/user/user.service";
 import { PortfolioService } from "./portfolio.servcie";
-import { IPortfolio } from "../../../entities/src";
+import { IPortfolio } from "@package/entities";
 
 @Controller()
 export class PortfolioController {

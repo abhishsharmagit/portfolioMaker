@@ -5,7 +5,7 @@ import {
   RepoEntity,
   FileEntity,
   User,
-} from '../../../entities/src';
+} from '@package/entities';
 
 export interface JWTPayload {
   id: string;

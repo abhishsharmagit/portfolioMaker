@@ -3,10 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as path from 'path';
 import { dev } from './helper/types';
-import { User } from '../../entities/src/user/user.entity';
-import { FileEntity } from '../../entities/src/file/file.entity';
-import { PortfolioEntity } from '../../entities/src/portfolio/portfolio.entity';
-import { RepoEntity } from '../../entities/src/repo/repo.entity';
+import { User, FileEntity, PortfolioEntity, RepoEntity } from "@package/entities";
 
 @Module({
   imports: [

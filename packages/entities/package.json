@@ -2,7 +2,7 @@
   "name": "@portfoliomaker/entities",
   "version": "1.0.0",
   "description": "entities package",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "author": "abhishek",
   "license": "MIT",
   "scripts": {

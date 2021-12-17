@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PortfolioEntity, User, IPortfolio } from '../../../entities/src';
+import { PortfolioEntity, User, IPortfolio } from '@package/entities';
 import { Repository } from 'typeorm';
 
 @Injectable()

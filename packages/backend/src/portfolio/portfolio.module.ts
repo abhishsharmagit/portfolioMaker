@@ -5,7 +5,7 @@ import {
   PortfolioEntity,
   RepoEntity,
   User,
-} from '../../../entities/src';
+} from '@package/entities';
 import { UserModule } from 'src/user/user.module';
 import { PortfolioController } from './portfolio.controller';
 import { PortfolioService } from './portfolio.servcie';
