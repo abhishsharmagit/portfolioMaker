@@ -14,7 +14,6 @@ RUN yarn global add lerna
 COPY . .
 
 RUN yarn install
-RUN lerna bootstrap
 RUN yarn build
 
 
