@@ -1,6 +1,7 @@
 {
   "name": "portfoliomaker",
   "version": "1.0.0",
+  "description": "Mono repository for Portfolio maker",
   "workspaces": [
     "packages/*"
   ],
